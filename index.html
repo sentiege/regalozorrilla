@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Votación – Tapa del Libro | Prof. Zorrilla</title>
+<title>Votaci&#243;n &#8211; Tapa del Libro | Prof. Zorrilla</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -21,13 +21,11 @@
   --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
   --space-12:3rem;--space-16:4rem;
   --radius-sm:.375rem;--radius-md:.5rem;--radius-lg:.75rem;--radius-xl:1rem;--radius-full:9999px;
-  --transition-interactive:180ms cubic-bezier(0.16,1,0.3,1);
+  --transition:180ms cubic-bezier(0.16,1,0.3,1);
   --color-bg:#0e0c0a;--color-surface:#141210;--color-surface-2:#1a1714;--color-surface-3:#211e1a;
   --color-border:rgba(255,255,255,0.08);--color-divider:rgba(255,255,255,0.05);
   --color-text:#e8e4de;--color-text-muted:#9a9289;--color-text-faint:#5a5550;
-  --color-accent:#c0392b;--color-accent-hover:#e74c3c;--color-accent-glow:rgba(192,57,43,0.2);
-  --color-gold:#c9963a;
-  --shadow-sm:0 1px 3px rgba(0,0,0,.4);--shadow-md:0 4px 16px rgba(0,0,0,.5);
+  --color-accent:#c0392b;--color-gold:#c9963a;
   --shadow-lg:0 12px 40px rgba(0,0,0,.6);--shadow-glow:0 0 30px rgba(192,57,43,.25);
   --content-default:1100px;
 }
@@ -36,177 +34,147 @@ html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);min-height:100dvh;line-height:1.6;}
 img{display:block;max-width:100%;height:auto}
 button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
-a,button,[role="button"]{transition:color var(--transition-interactive),background var(--transition-interactive),box-shadow var(--transition-interactive),transform var(--transition-interactive),border-color var(--transition-interactive);}
+a,button{transition:all var(--transition);}
 :focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;border-radius:var(--radius-sm)}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4;}
 .container{max-width:var(--content-default);margin-inline:auto;padding-inline:var(--space-4);position:relative;z-index:1}
-header{padding:var(--space-16) var(--space-4) var(--space-10);text-align:center;position:relative;overflow:hidden;}
+header{padding:var(--space-16) var(--space-4) var(--space-10);text-align:center;position:relative;}
 header::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:1px;height:60px;background:linear-gradient(to bottom,var(--color-accent),transparent);}
-.header-eyebrow{font-size:var(--text-xs);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--color-gold);margin-bottom:var(--space-4);display:flex;align-items:center;justify-content:center;gap:var(--space-2);}
-.header-eyebrow::before,.header-eyebrow::after{content:'';display:block;width:40px;height:1px;background:var(--color-gold);opacity:.4;}
-h1{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;line-height:1.1;color:var(--color-text);margin-bottom:var(--space-4);letter-spacing:-.01em;}
-h1 span{color:var(--color-accent);font-style:italic;}
-.header-subtitle{font-size:var(--text-base);color:var(--color-text-muted);max-width:55ch;margin-inline:auto;margin-bottom:var(--space-3);line-height:1.7;}
-.header-author{font-size:var(--text-sm);color:var(--color-text-faint);letter-spacing:.05em;}
+.eyebrow{font-size:var(--text-xs);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--color-gold);margin-bottom:var(--space-4);display:flex;align-items:center;justify-content:center;gap:var(--space-2);}
+.eyebrow::before,.eyebrow::after{content:'';display:block;width:40px;height:1px;background:var(--color-gold);opacity:.4;}
+h1{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;line-height:1.1;margin-bottom:var(--space-4);}
+h1 em{color:var(--color-accent);font-style:italic;}
+.subtitle{font-size:var(--text-base);color:var(--color-text-muted);max-width:55ch;margin-inline:auto;margin-bottom:var(--space-3);line-height:1.7;}
+.author{font-size:var(--text-sm);color:var(--color-text-faint);letter-spacing:.05em;}
 .total-bar{text-align:center;padding:var(--space-4) 0 var(--space-10);}
 .total-pill{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-5);border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface);font-size:var(--text-sm);color:var(--color-text-muted);}
-.total-pill strong{color:var(--color-text);margin-left:var(--space-1)}
-.covers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:var(--space-6);padding-bottom:var(--space-16);}
-.cover-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);overflow:hidden;display:flex;flex-direction:column;transition:transform 200ms cubic-bezier(0.16,1,0.3,1),box-shadow 200ms cubic-bezier(0.16,1,0.3,1),border-color 200ms ease;cursor:pointer;position:relative;}
-.cover-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg),var(--shadow-glow);border-color:rgba(192,57,43,.3);}
-.cover-card.selected{border-color:var(--color-accent);box-shadow:var(--shadow-lg),0 0 0 2px var(--color-accent),var(--shadow-glow);}
-.voted-badge{display:none;position:absolute;top:var(--space-3);right:var(--space-3);background:var(--color-accent);color:#fff;font-size:var(--text-xs);font-weight:600;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);letter-spacing:.05em;z-index:2;box-shadow:0 2px 8px rgba(192,57,43,.4);}
-.cover-card.voted .voted-badge{display:block}
-.cover-number{position:absolute;top:var(--space-3);left:var(--space-3);width:28px;height:28px;background:rgba(14,12,10,.7);border:1px solid var(--color-border);border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);backdrop-filter:blur(4px);z-index:2;}
-.cover-img-wrap{aspect-ratio:6/9;overflow:hidden;background:var(--color-surface-2);position:relative;}
-.cover-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(0.16,1,0.3,1);}
-.cover-card:hover .cover-img-wrap img{transform:scale(1.03);}
-.cover-body{padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);flex:1;}
-.cover-name{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;color:var(--color-text);line-height:1.2;}
-.cover-desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;flex:1;}
-.vote-bar-wrap{display:flex;flex-direction:column;gap:var(--space-2);}
-.vote-meta{display:flex;justify-content:space-between;align-items:center;}
-.vote-count{font-size:var(--text-sm);font-weight:600;color:var(--color-text);}
-.vote-pct{font-size:var(--text-xs);color:var(--color-text-muted);}
-.vote-bar-bg{height:4px;border-radius:var(--radius-full);background:var(--color-surface-3);overflow:hidden;}
-.vote-bar-fill{height:100%;border-radius:var(--radius-full);background:var(--color-accent);transition:width 600ms cubic-bezier(0.16,1,0.3,1);width:0%;}
-.cover-card.leading .vote-bar-fill{background:linear-gradient(90deg,var(--color-accent),var(--color-gold));}
+.total-pill strong{color:var(--color-text);margin-left:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:var(--space-6);padding-bottom:var(--space-16);}
+.card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);overflow:hidden;display:flex;flex-direction:column;transition:transform 200ms cubic-bezier(0.16,1,0.3,1),box-shadow 200ms cubic-bezier(0.16,1,0.3,1),border-color 200ms ease;position:relative;}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg),var(--shadow-glow);border-color:rgba(192,57,43,.3);}
+.card.selected{border-color:var(--color-accent);box-shadow:var(--shadow-lg),0 0 0 2px var(--color-accent),var(--shadow-glow);}
+.badge{display:none;position:absolute;top:var(--space-3);right:var(--space-3);background:var(--color-accent);color:#fff;font-size:var(--text-xs);font-weight:600;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);z-index:2;box-shadow:0 2px 8px rgba(192,57,43,.4);}
+.card.voted .badge{display:block}
+.num{position:absolute;top:var(--space-3);left:var(--space-3);width:28px;height:28px;background:rgba(14,12,10,.75);border:1px solid var(--color-border);border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);backdrop-filter:blur(4px);z-index:2;}
+.img-wrap{aspect-ratio:6/9;overflow:hidden;background:var(--color-surface-2);}
+.img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 400ms cubic-bezier(0.16,1,0.3,1);cursor:zoom-in;}
+.card:hover .img-wrap img{transform:scale(1.03);}
+.body{padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);flex:1;}
+.name{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;line-height:1.2;}
+.desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6;flex:1;}
+.bar-wrap{display:flex;flex-direction:column;gap:var(--space-2);}
+.bar-meta{display:flex;justify-content:space-between;}
+.count{font-size:var(--text-sm);font-weight:600;}
+.pct{font-size:var(--text-xs);color:var(--color-text-muted);}
+.bar-bg{height:4px;border-radius:var(--radius-full);background:var(--color-surface-3);overflow:hidden;}
+.bar-fill{height:100%;border-radius:var(--radius-full);background:var(--color-accent);transition:width 600ms cubic-bezier(0.16,1,0.3,1);width:0%;}
+.card.leading .bar-fill{background:linear-gradient(90deg,var(--color-accent),var(--color-gold));}
 .vote-btn{width:100%;padding:var(--space-3) var(--space-4);border-radius:var(--radius-lg);border:1px solid var(--color-border);background:var(--color-surface-2);color:var(--color-text-muted);font-size:var(--text-sm);font-weight:600;display:flex;align-items:center;justify-content:center;gap:var(--space-2);letter-spacing:.03em;transition:all 200ms cubic-bezier(0.16,1,0.3,1);}
 .vote-btn:hover:not(:disabled){background:var(--color-accent);color:#fff;border-color:var(--color-accent);box-shadow:0 4px 16px rgba(192,57,43,.35);transform:translateY(-1px);}
-.vote-btn:disabled{opacity:.5;cursor:not-allowed;}
+.vote-btn:disabled{opacity:.45;cursor:not-allowed;}
 .vote-btn svg{width:16px;height:16px;flex-shrink:0}
-.loading-overlay{position:fixed;inset:0;background:var(--color-bg);display:flex;align-items:center;justify-content:center;z-index:100;transition:opacity 400ms ease;}
-.loading-overlay.hidden{opacity:0;pointer-events:none}
-.loading-spinner{width:40px;height:40px;border:2px solid var(--color-border);border-top-color:var(--color-accent);border-radius:50%;animation:spin .8s linear infinite;}
+.loader{position:fixed;inset:0;background:var(--color-bg);display:flex;align-items:center;justify-content:center;z-index:100;transition:opacity 400ms ease;}
+.loader.gone{opacity:0;pointer-events:none}
+.spinner{width:40px;height:40px;border:2px solid var(--color-border);border-top-color:var(--color-accent);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
-.toast{position:fixed;bottom:var(--space-6);left:50%;transform:translateX(-50%) translateY(80px);background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-6);font-size:var(--text-sm);color:var(--color-text);box-shadow:var(--shadow-lg);z-index:200;transition:transform 300ms cubic-bezier(0.16,1,0.3,1),opacity 300ms ease;opacity:0;white-space:nowrap;}
+.toast{position:fixed;bottom:var(--space-6);left:50%;transform:translateX(-50%) translateY(80px);background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-3) var(--space-6);font-size:var(--text-sm);box-shadow:var(--shadow-lg);z-index:200;transition:transform 300ms cubic-bezier(0.16,1,0.3,1),opacity 300ms ease;opacity:0;white-space:nowrap;}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-.toast.success{border-color:rgba(192,57,43,.4);color:var(--color-accent)}
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(6px);z-index:150;display:flex;align-items:center;justify-content:center;padding:var(--space-4);opacity:0;pointer-events:none;transition:opacity 250ms ease;}
-.modal-bg.open{opacity:1;pointer-events:all}
-.modal-img{max-height:90dvh;max-width:90vw;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);cursor:zoom-out;}
+.toast.ok{border-color:rgba(192,57,43,.4);color:var(--color-accent)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(6px);z-index:150;display:flex;align-items:center;justify-content:center;padding:var(--space-4);opacity:0;pointer-events:none;transition:opacity 250ms ease;}
+.overlay.open{opacity:1;pointer-events:all}
+.overlay img{max-height:90dvh;max-width:90vw;border-radius:var(--radius-lg);cursor:zoom-out;}
 footer{text-align:center;padding:var(--space-10) var(--space-4);border-top:1px solid var(--color-divider);color:var(--color-text-faint);font-size:var(--text-xs);letter-spacing:.04em;}
-@media(max-width:600px){.covers-grid{grid-template-columns:repeat(2,1fr);gap:var(--space-4)}h1{font-size:clamp(1.5rem,7vw,2.5rem)}}
-@media(max-width:400px){.covers-grid{grid-template-columns:1fr}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.cover-card{animation:fadeUp 400ms cubic-bezier(0.16,1,0.3,1) both}
-.cover-card:nth-child(1){animation-delay:50ms}.cover-card:nth-child(2){animation-delay:120ms}
-.cover-card:nth-child(3){animation-delay:190ms}.cover-card:nth-child(4){animation-delay:260ms}
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:var(--space-4)}h1{font-size:clamp(1.5rem,7vw,2.5rem)}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.card{animation:up 400ms cubic-bezier(0.16,1,0.3,1) both}
+.card:nth-child(1){animation-delay:60ms}.card:nth-child(2){animation-delay:130ms}
+.card:nth-child(3){animation-delay:200ms}.card:nth-child(4){animation-delay:270ms}
 </style>
 </head>
 <body>
 
-<div class="loading-overlay" id="loadingOverlay"><div class="loading-spinner"></div></div>
+<div class="loader" id="loader"><div class="spinner"></div></div>
 <div class="toast" id="toast"></div>
-<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true">
-  <img class="modal-img" id="modalImg" src="" alt="Tapa ampliada">
-</div>
+<div class="overlay" id="overlay"><img id="zoomImg" src="" alt="Tapa ampliada"></div>
 
 <header>
-  <div class="header-eyebrow">Ciencias Pol&#237;ticas &middot; UNA &middot; 2026</div>
-  <h1>Eleg&#237; la tapa del <span>libro</span></h1>
-  <p class="header-subtitle">Cuatro propuestas de portada para el libro de c&#225;tedra de Historia Social Latinoamericana. Tu voto define el dise&#241;o final.</p>
-  <p class="header-author">Prof. M&#225;ximo Zorrilla &mdash; Historia Social Latinoamericana</p>
+  <div class="eyebrow">Ciencias Pol&#237;ticas &middot; UNA &middot; 2026</div>
+  <h1>Eleg&#237; la tapa<br>del <em>libro</em></h1>
+  <p class="subtitle">Cuatro propuestas de portada para el libro de c&#225;tedra de Historia Social Latinoamericana. Tu voto define el dise&#241;o final.</p>
+  <p class="author">Prof. M&#225;ximo Zorrilla &mdash; Historia Social Latinoamericana</p>
 </header>
 
 <div class="total-bar container">
   <div class="total-pill">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-    Votos registrados: <strong id="totalVotes">&mdash;</strong>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Votos registrados: <strong id="total">&#8212;</strong>
   </div>
 </div>
 
 <main class="container">
-  <div class="covers-grid" id="coversGrid">
+  <div class="grid">
 
-    <div class="cover-card" id="card-0" data-id="minimalista">
-      <span class="cover-number">1</span>
-      <span class="voted-badge">&#10003; Tu voto</span>
-      <div class="cover-img-wrap">
-        <img src="Minimalista.png" alt="Modelo 1 Minimalista" width="240" height="360" loading="lazy" onclick="openModal(this)" style="cursor:zoom-in">
-      </div>
-      <div class="cover-body">
-        <div class="cover-name">Modelo 1<br>Minimalista</div>
-        <div class="cover-desc">Fondo oscuro, tipograf&#237;a serif dominante y paleta acad&#233;mica sobria. Estilo editorial universitario cl&#225;sico.</div>
-        <div class="vote-bar-wrap">
-          <div class="vote-meta">
-            <span class="vote-count" id="count-minimalista">0 votos</span>
-            <span class="vote-pct" id="pct-minimalista">0%</span>
-          </div>
-          <div class="vote-bar-bg"><div class="vote-bar-fill" id="bar-minimalista"></div></div>
+    <div class="card" data-id="minimalista">
+      <span class="num">1</span><span class="badge">&#10003; Tu voto</span>
+      <div class="img-wrap"><img src="Minimalista.png" alt="Modelo 1 Minimalista" width="240" height="360" loading="lazy" onclick="zoom(this)"></div>
+      <div class="body">
+        <div class="name">Modelo 1<br>Minimalista</div>
+        <div class="desc">Fondo oscuro, tipograf&#237;a serif dominante. Estilo editorial universitario cl&#225;sico y sobrio.</div>
+        <div class="bar-wrap">
+          <div class="bar-meta"><span class="count" id="c-minimalista">0 votos</span><span class="pct" id="p-minimalista">0%</span></div>
+          <div class="bar-bg"><div class="bar-fill" id="b-minimalista"></div></div>
         </div>
-        <button class="vote-btn" onclick="vote('minimalista')" id="btn-minimalista">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Votar por esta tapa
+        <button class="vote-btn" id="btn-minimalista" onclick="vote('minimalista')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Votar por esta tapa
         </button>
       </div>
     </div>
 
-    <div class="cover-card" id="card-1" data-id="venas">
-      <span class="cover-number">2</span>
-      <span class="voted-badge">&#10003; Tu voto</span>
-      <div class="cover-img-wrap">
-        <img src="venas abiertas.png" alt="Modelo 2 Venas Abiertas" width="240" height="360" loading="lazy" onclick="openModal(this)" style="cursor:zoom-in">
-      </div>
-      <div class="cover-body">
-        <div class="cover-name">Modelo 2<br>Venas Abiertas</div>
-        <div class="cover-desc">Tintero derramando tinta roja que traza el mapa de Latinoam&#233;rica. Inspirado en Galeano &mdash; visceral y pol&#237;tico.</div>
-        <div class="vote-bar-wrap">
-          <div class="vote-meta">
-            <span class="vote-count" id="count-venas">0 votos</span>
-            <span class="vote-pct" id="pct-venas">0%</span>
-          </div>
-          <div class="vote-bar-bg"><div class="vote-bar-fill" id="bar-venas"></div></div>
+    <div class="card" data-id="venas">
+      <span class="num">2</span><span class="badge">&#10003; Tu voto</span>
+      <div class="img-wrap"><img src="venas abiertas.png" alt="Modelo 2 Venas Abiertas" width="240" height="360" loading="lazy" onclick="zoom(this)"></div>
+      <div class="body">
+        <div class="name">Modelo 2<br>Venas Abiertas</div>
+        <div class="desc">Tintero con tinta roja que traza el mapa. Inspirado en Galeano &#8212; visceral y pol&#237;tico.</div>
+        <div class="bar-wrap">
+          <div class="bar-meta"><span class="count" id="c-venas">0 votos</span><span class="pct" id="p-venas">0%</span></div>
+          <div class="bar-bg"><div class="bar-fill" id="b-venas"></div></div>
         </div>
-        <button class="vote-btn" onclick="vote('venas')" id="btn-venas">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Votar por esta tapa
+        <button class="vote-btn" id="btn-venas" onclick="vote('venas')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Votar por esta tapa
         </button>
       </div>
     </div>
 
-    <div class="cover-card" id="card-2" data-id="esclavismo">
-      <span class="cover-number">3</span>
-      <span class="voted-badge">&#10003; Tu voto</span>
-      <div class="cover-img-wrap">
-        <img src="esclavismo-pillaje.png" alt="Modelo 3 Esclavismo y Pillaje" width="240" height="360" loading="lazy" onclick="openModal(this)" style="cursor:zoom-in">
-      </div>
-      <div class="cover-body">
-        <div class="cover-name">Modelo 3<br>Esclavismo y Pillaje</div>
-        <div class="cover-desc">La Cadena Colonial &mdash; continente encadenado con figuras de la encomienda. Opresivo y cargado de historia.</div>
-        <div class="vote-bar-wrap">
-          <div class="vote-meta">
-            <span class="vote-count" id="count-esclavismo">0 votos</span>
-            <span class="vote-pct" id="pct-esclavismo">0%</span>
-          </div>
-          <div class="vote-bar-bg"><div class="vote-bar-fill" id="bar-esclavismo"></div></div>
+    <div class="card" data-id="esclavismo">
+      <span class="num">3</span><span class="badge">&#10003; Tu voto</span>
+      <div class="img-wrap"><img src="esclavismo-pillaje.png" alt="Modelo 3 Esclavismo y Pillaje" width="240" height="360" loading="lazy" onclick="zoom(this)"></div>
+      <div class="body">
+        <div class="name">Modelo 3<br>Esclavismo y Pillaje</div>
+        <div class="desc">La Cadena Colonial &#8212; continente encadenado con figuras de la encomienda colonial.</div>
+        <div class="bar-wrap">
+          <div class="bar-meta"><span class="count" id="c-esclavismo">0 votos</span><span class="pct" id="p-esclavismo">0%</span></div>
+          <div class="bar-bg"><div class="bar-fill" id="b-esclavismo"></div></div>
         </div>
-        <button class="vote-btn" onclick="vote('esclavismo')" id="btn-esclavismo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Votar por esta tapa
+        <button class="vote-btn" id="btn-esclavismo" onclick="vote('esclavismo')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Votar por esta tapa
         </button>
       </div>
     </div>
 
-    <div class="cover-card" id="card-3" data-id="industrializacion">
-      <span class="cover-number">4</span>
-      <span class="voted-badge">&#10003; Tu voto</span>
-      <div class="cover-img-wrap">
-        <img src="industrializacion.png" alt="Modelo 4 Industrializacion y Masas" width="240" height="360" loading="lazy" onclick="openModal(this)" style="cursor:zoom-in">
-      </div>
-      <div class="cover-body">
-        <div class="cover-name">Modelo 4<br>Industrializaci&#243;n y Masas</div>
-        <div class="cover-desc">Corporativismo y sociedad de masas &mdash; humo industrial, multitudes obreras y cielo oscuro latinoamericano.</div>
-        <div class="vote-bar-wrap">
-          <div class="vote-meta">
-            <span class="vote-count" id="count-industrializacion">0 votos</span>
-            <span class="vote-pct" id="pct-industrializacion">0%</span>
-          </div>
-          <div class="vote-bar-bg"><div class="vote-bar-fill" id="bar-industrializacion"></div></div>
+    <div class="card" data-id="industrializacion">
+      <span class="num">4</span><span class="badge">&#10003; Tu voto</span>
+      <div class="img-wrap"><img src="industrializacion.png" alt="Modelo 4 Industrializacion" width="240" height="360" loading="lazy" onclick="zoom(this)"></div>
+      <div class="body">
+        <div class="name">Modelo 4<br>Industrializaci&#243;n</div>
+        <div class="desc">Corporativismo y masas &#8212; humo industrial, multitudes obreras y cielo oscuro latinoamericano.</div>
+        <div class="bar-wrap">
+          <div class="bar-meta"><span class="count" id="c-industrializacion">0 votos</span><span class="pct" id="p-industrializacion">0%</span></div>
+          <div class="bar-bg"><div class="bar-fill" id="b-industrializacion"></div></div>
         </div>
-        <button class="vote-btn" onclick="vote('industrializacion')" id="btn-industrializacion">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          Votar por esta tapa
+        <button class="vote-btn" id="btn-industrializacion" onclick="vote('industrializacion')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Votar por esta tapa
         </button>
       </div>
     </div>
@@ -221,108 +189,95 @@ footer{text-align:center;padding:var(--space-10) var(--space-4);border-top:1px s
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+import { getDatabase, ref, runTransaction, onValue }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "FIREBASE_API_KEY",
-  authDomain: "FIREBASE_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://FIREBASE_PROJECT_ID-default-rtdb.firebaseio.com",
-  projectId: "FIREBASE_PROJECT_ID",
-  storageBucket: "FIREBASE_PROJECT_ID.appspot.com",
-  messagingSenderId: "FIREBASE_SENDER_ID",
-  appId: "FIREBASE_APP_ID"
+  databaseURL: "https://regalozorrilla-default-rtdb.firebaseio.com"
 };
 
 const COVERS = ['minimalista','venas','esclavismo','industrializacion'];
-let userVote = sessionStorage.getItem('vote_zorrilla') || null;
-let db;
+let userVote = sessionStorage.getItem('vzorrilla') || null;
 
-try {
-  const app = initializeApp(firebaseConfig);
-  db = getDatabase(app);
-  init();
-} catch(e) {
-  console.error('Firebase init error:', e);
-  hideLoading();
-  showToast('Error al conectar. Recarg\u00e1 la p\u00e1gina.', false);
-}
+const app = initializeApp(firebaseConfig);
+const db  = getDatabase(app);
 
-function init() {
-  const votesRef = ref(db, 'votes');
-  onValue(votesRef, (snap) => {
-    const data = snap.val() || {};
-    updateUI(data);
-    hideLoading();
-  });
-  if (userVote) applyVotedState(userVote);
-}
-
-function updateUI(data) {
+// Escuchar cambios en tiempo real
+onValue(ref(db, 'votes'), snap => {
+  const data = snap.val() || {};
   let total = 0;
   COVERS.forEach(id => { total += (data[id] || 0); });
-  document.getElementById('totalVotes').textContent = total;
-  let leaderId = null, leaderCount = 0;
-  COVERS.forEach(id => { const c = data[id]||0; if(c>leaderCount){leaderCount=c;leaderId=id;} });
-  COVERS.forEach(id => {
-    const count = data[id] || 0;
-    const pct = total > 0 ? Math.round((count/total)*100) : 0;
-    document.getElementById('count-'+id).textContent = count===1?'1 voto':(count+' votos');
-    document.getElementById('pct-'+id).textContent = pct+'%';
-    document.getElementById('bar-'+id).style.width = pct+'%';
-    document.querySelector('[data-id="'+id+'"]').classList.toggle('leading', id===leaderId&&leaderCount>0);
-  });
-}
+  document.getElementById('total').textContent = total;
 
-window.vote = function(coverId) {
-  if (userVote) { showToast('Ya registraste tu voto. \u00a1Gracias!', false); return; }
-  runTransaction(ref(db, 'votes/'+coverId), c => (c||0)+1)
+  let leadId = null, leadN = 0;
+  COVERS.forEach(id => { const n = data[id]||0; if(n>leadN){leadN=n;leadId=id;} });
+
+  COVERS.forEach(id => {
+    const n   = data[id] || 0;
+    const pct = total > 0 ? Math.round((n/total)*100) : 0;
+    document.getElementById('c-'+id).textContent = n===1 ? '1 voto' : n+' votos';
+    document.getElementById('p-'+id).textContent = pct+'%';
+    document.getElementById('b-'+id).style.width  = pct+'%';
+    document.querySelector('[data-id="'+id+'"]').classList.toggle('leading', id===leadId && leadN>0);
+  });
+
+  hideLoader();
+});
+
+window.vote = function(id) {
+  if (userVote) { toast('Ya registraste tu voto. &#161;Gracias!', false); return; }
+  runTransaction(ref(db,'votes/'+id), n => (n||0)+1)
     .then(() => {
-      userVote = coverId;
-      sessionStorage.setItem('vote_zorrilla', coverId);
-      applyVotedState(coverId);
-      showToast('\u00a1Voto registrado! Gracias por participar.', true);
+      userVote = id;
+      sessionStorage.setItem('vzorrilla', id);
+      markVoted(id);
+      toast('&#161;Voto registrado! Gracias por participar.', true);
     })
-    .catch(() => showToast('Error al votar. Intent\u00e1 de nuevo.', false));
+    .catch(() => toast('Error al votar. Intent&#225; de nuevo.', false));
 };
 
-function applyVotedState(coverId) {
+function markVoted(votedId) {
   COVERS.forEach(id => {
-    const btn = document.getElementById('btn-'+id);
     const card = document.querySelector('[data-id="'+id+'"]');
-    if (id===coverId) {
+    const btn  = document.getElementById('btn-'+id);
+    if (id === votedId) {
       card.classList.add('voted','selected');
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg> \u00a1Tu voto!';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg> &#161;Tu voto!';
     } else {
       btn.disabled = true;
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg> Ya votaste';
+      btn.textContent = 'Ya votaste';
     }
   });
 }
 
-function hideLoading() {
-  const el = document.getElementById('loadingOverlay');
-  el.classList.add('hidden');
-  setTimeout(() => el.style.display='none', 450);
+function hideLoader() {
+  const el = document.getElementById('loader');
+  el.classList.add('gone');
+  setTimeout(() => el.remove(), 500);
 }
 
-function showToast(msg, success=true) {
+function toast(msg, ok) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast'+(success?' success':'');
+  t.innerHTML = msg;
+  t.className = 'toast' + (ok ? ' ok' : '');
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3200);
+  setTimeout(() => t.classList.remove('show'), 3400);
 }
+
+// Restaurar estado si ya vot&#243;
+if (userVote) markVoted(userVote);
 </script>
 
 <script>
-function openModal(img) {
-  const bg = document.getElementById('modalBg');
-  document.getElementById('modalImg').src = img.src;
-  document.getElementById('modalImg').alt = img.alt;
-  bg.classList.add('open');
+function zoom(img) {
+  document.getElementById('zoomImg').src = img.src;
+  document.getElementById('overlay').classList.add('open');
 }
-document.getElementById('modalBg').addEventListener('click', () => document.getElementById('modalBg').classList.remove('open'));
-document.addEventListener('keydown', e => { if(e.key==='Escape') document.getElementById('modalBg').classList.remove('open'); });
+document.getElementById('overlay').addEventListener('click', () =>
+  document.getElementById('overlay').classList.remove('open'));
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape') document.getElementById('overlay').classList.remove('open');
+});
 </script>
 </body>
 </html>
