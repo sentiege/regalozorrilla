@@ -153,6 +153,17 @@ footer{text-align:center;padding:var(--space-10) var(--space-4);border-top:1px s
   .gift-card{flex-direction:column;gap:var(--space-4);padding:var(--space-6) var(--space-4);}
   .gift-icon{width:44px;height:44px;}
 }
+
+/* ── Countdown ── */
+.countdown-wrap{text-align:center;padding:var(--space-8) var(--space-4) var(--space-12);position:relative;z-index:1;}
+.countdown-label{font-size:var(--text-sm);color:var(--color-text-muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--space-4);}
+.countdown-boxes{display:flex;justify-content:center;align-items:center;gap:var(--space-3);flex-wrap:wrap;}
+.countdown-unit{display:flex;flex-direction:column;align-items:center;gap:var(--space-1);}
+.countdown-num{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1;color:var(--color-accent);min-width:2.2ch;text-align:center;}
+.countdown-name{font-size:var(--text-xs);color:var(--color-text-faint);text-transform:uppercase;letter-spacing:.12em;}
+.countdown-sep{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--color-text-faint);line-height:1;margin-bottom:1.2rem;opacity:.4;}
+.countdown-note{font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-4);font-style:italic;letter-spacing:.03em;}
+.countdown-expired{font-size:var(--text-base);color:var(--color-gold);font-style:italic;}
 </style>
 </head>
 <body>
@@ -288,6 +299,22 @@ footer{text-align:center;padding:var(--space-10) var(--space-4);border-top:1px s
     </div>
   </div>
 </section>
+
+<div class="countdown-wrap container">
+  <p class="countdown-label">La votación termina el</p>
+  <p style="font-family:var(--font-display);font-size:var(--text-lg);color:var(--color-gold);margin-bottom:var(--space-5);font-weight:700;">Sábado a las 15:00 hs</p>
+  <div class="countdown-boxes">
+    <div class="countdown-unit"><span class="countdown-num" id="cd-dias">--</span><span class="countdown-name">días</span></div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-horas">--</span><span class="countdown-name">horas</span></div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-min">--</span><span class="countdown-name">min</span></div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-seg">--</span><span class="countdown-name">seg</span></div>
+  </div>
+  <p class="countdown-note">Necesitamos el tiempo para preparar los materiales ✦</p>
+</div>
+
 <footer>
   Historia Social Latinoamericana &middot; Ciencias Pol&#237;ticas &middot; Facultad de Derecho y Ciencias Sociales &middot; UNA<br>
   Prof. M&#225;ximo Zorrilla &middot; 2026
@@ -385,5 +412,51 @@ document.addEventListener('keydown', e => {
   if(e.key==='Escape') document.getElementById('overlay').classList.remove('open');
 });
 </script>
+
+<script>
+(function(){
+  // Sábado próximo a las 15:00 hs (hora local)
+  // Calculamos dinámicamente el próximo sábado desde hoy
+  function getNextSaturday15() {
+    const now = new Date();
+    const day = now.getDay(); // 0=dom,1=lun,...,6=sab
+    const daysUntilSat = (6 - day + 7) % 7 || 7; // días hasta el próximo sábado (si hoy es sábado y ya pasaron las 15, va al siguiente)
+    const target = new Date(now);
+    target.setDate(now.getDate() + daysUntilSat);
+    target.setHours(15, 0, 0, 0);
+    // Si hoy es sábado y aún no son las 15, la diferencia ya queda correcta
+    if (day === 6 && now < target) {
+      target.setDate(now.getDate()); // este mismo sábado
+      target.setHours(15, 0, 0, 0);
+    }
+    return target;
+  }
+
+  const target = getNextSaturday15();
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function tick(){
+    const now = new Date();
+    const diff = target - now;
+    if(diff <= 0){
+      document.querySelector('.countdown-boxes').innerHTML = '<p class="countdown-expired">¡La votación ha cerrado!</p>';
+      document.querySelector('.countdown-note').textContent = 'Muchas gracias a todos por participar.';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000)  / 60000);
+    const s = Math.floor((diff % 60000)    / 1000);
+    document.getElementById('cd-dias').textContent  = pad(d);
+    document.getElementById('cd-horas').textContent = pad(h);
+    document.getElementById('cd-min').textContent   = pad(m);
+    document.getElementById('cd-seg').textContent   = pad(s);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
 </body>
 </html>
